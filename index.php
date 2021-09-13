@@ -1,5 +1,5 @@
 <?php
-require("includes/mysql_connect.php");
+//require("includes/mysql_connect.php");
 include("includes/header.php");
 
 $random = mysqli_query($con, "SELECT * FROM ama_games ORDER BY RAND() LIMIT 1") or die(mysqli_error($con));
