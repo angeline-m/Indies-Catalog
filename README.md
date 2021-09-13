@@ -1,14 +1,42 @@
 # Indies Catalog
-CRUD video game catalog made with PHP v.7.3, MySQL, and Bootstrap v4.0 (and a Bootstrap template page).
 
-I've chosen 32 beautiful, unique, and enjoyable games created by independent developers. For the most part, these games are fairly casual and family-friendly. Don't let the games' saccharine theme fool you, some of these games are challenging and thought-provoking!
+Full CRUD video game catalog with 32-hand picked under the radar games. Login functionality (must log in to insert/update/delete entries) and search functionality with search bar. This website uses **PHP, Bootstrap 4 and a modified version its [Dashboard Template](https://getbootstrap.com/docs/4.0/examples/dashboard/)**.
 
-This repository only exists to show raw code for the project as it is being hosted elsewhere. For security purposes, the `mysql_connect.php` file has not been uploaded.
+The catalog information is stored in a table in a MySQL database. The information collected for each game contains:
+- Game Title
+- Self-written description
+- Developer
+- Publisher
+- Steam release date
+- Canadian Steam price (as of late April 2020)
+- Platforms [stored as a comma-separated string] (Windows, Mac OS, Linux, PS4, Xbox One, Nintendo Switch, Android, iOS)
+- Genres [stored as a comma-separated string] (Puzzle, Point and Click, Action, Adventure, Platformer)
+- Multiplayer/co-op boolean (N/Y or 0/1)
+- Cover image (stored as a unique filename using uuid)
+- YouTube trailer video code (optional)
 
-## Features
-* Full CRUD (create, read, update, delete) functionality on all games
-* Login and logout to insert, update, or delete entries (redirects on insert/edit pages if not logged in)
-* Search functionality with search bar
+## Website Features:
+- General
+  - Login/Logout functionality only for the insert/edit pages to do any database CRUD
+  - Site-wide search bar that leads to a results page
+- Intro page
+  - I'm feeling lucky button will take you to the detail page for a random game
+- Main page
+  - Game filtering:
+    - View all
+    - Multiplayer only
+    - Platform
+    - Genre
+    - Release Year
+  - Sorting:
+    - View all
+    - Title A-Z
+    - Title Z-A
+    - Price low to high
+    - Price high to low
+    - Release date new to old
+    - Release date old to new
+  - Random game widget
 
 ---
 
