@@ -7,8 +7,7 @@ This repository only exists to show raw code for the project as it is being host
 
 ## Features
 * Full CRUD (create, read, update, delete) functionality on all games
-* Login and logout to insert, update, or delete image entries
-* Redirects for insert and edit pages if not logged in
+* Login and logout to insert, update, or delete entries (redirects on insert/edit pages if not logged in)
 * Search functionality with search bar
 
 ---
