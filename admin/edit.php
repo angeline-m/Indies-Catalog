@@ -22,57 +22,66 @@
     $thumbsFolder = "../img/thumbs/";
     $displayFolder = "../img/display/";
 
+    $thisTitle = isset($_POST['gameTitle']) ? trim($_POST['gameTitle']) : '';
+    $thisDesc = isset($_POST['description']) ? $_POST['description'] : '';
+    $thisDev = isset($_POST['gameDev']) ? trim($_POST['gameDev']) : '';
+    $thisPub = isset($_POST['gamePub']) ? trim($_POST['gamePub']) : '';
+    $thisDate = isset($_POST['gameDate']) ? trim($_POST['gameDate']) : '';
+    $thisPrice = isset($_POST['gamePrice']) ? trim($_POST['gamePrice']) : '';
+    $win = isset($_POST['cbWin']) ? $_POST['cbWin'] : '';
+    $mac = isset($_POST['cbMac']) ? $_POST['cbMac'] : '';
+    $linux = isset($_POST['cbLinux']) ? $_POST['cbLinux'] : '';
+    $ps4 = isset($_POST['cbPS4']) ? $_POST['cbPS4'] : '';
+    $xbox = isset($_POST['cbXbox']) ? $_POST['cbXbox'] : '';
+    $switch = isset($_POST['cbSwitch']) ? $_POST['cbSwitch'] : '';
+    $ios = isset($_POST['cbIOS']) ? $_POST['cbIOS'] : '';
+    $and = isset($_POST['cbAnd']) ? $_POST['cbAnd'] : '';
+    $action = isset($_POST['cbAction']) ? $_POST['cbAction'] : '';
+    $adventure = isset($_POST['cbAdventure']) ? $_POST['cbAdventure'] : '';
+    $point = isset($_POST['cbPoint']) ? $_POST['cbPoint'] : '';
+    $platformer = isset($_POST['cbPlatformer']) ? $_POST['cbPlatformer'] : '';
+    $puzzle = isset($_POST['cbPuzzle']) ? $_POST['cbPuzzle'] : '';
+    $thisMulti = isset($_POST['cbMulti']) ? $_POST['cbMulti'] : '';
+    $thisCode = isset($_POST['trailerCode']) ? $_POST['trailerCode'] : '';
+    $genres = "";
+    $platforms = "";
+    $errors = 0;
+
     if (isset($_POST['submit']))
     {
-        $thisTitle = trim($_POST['gameTitle']);
-        $thisDesc = $_POST['description'];;
-        $thisDev = trim($_POST['gameDev']);
-        $thisPub = trim($_POST['gamePub']);
-        $thisDate = trim($_POST['gameDate']);
-        $thisPrice = trim($_POST['gamePrice']);
-        $win = $_POST['cbWin'];
-        $mac = $_POST['cbMac'];
-        $linux = $_POST['cbLinux'];
-        $ps4 = $_POST['cbPS4'];
-        $xbox = $_POST['cbXbox'];
-        $switch = $_POST['cbSwitch'];
-        $ios = $_POST['cbIOS'];
-        $and = $_POST['cbAnd'];
-        $action = $_POST['cbAction'];
-        $adventure = $_POST['cbAdventure'];
-        $point = $_POST['cbPoint'];
-        $platformer = $_POST['cbPlatformer'];
-        $puzzle = $_POST['cbPuzzle'];
-        $thisMulti = $_POST['cbMulti'];
-        $thisCode = $_POST['trailerCode'];
-        $genres = "";
-        $platforms = "";
-        $errors = 0;
 
         $fileID = uniqid();
 
-        if (($_FILES["file"]["type"] == "image/jpeg")|| ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/png"))
+        if ($_FILES["file"]["tmp_name"] == null || $_FILES["file"]["tmp_name"] == "")
         {
-            $filename = $fileID . "." . substr($_FILES["file"]["type"], 6);
-
-            if($_FILES["file"]["size"] > 1000000)
-            {
-                echo "<style> .file-size { display: block; }</style>";
-                $errors = 1;
-            }
+            $filename = '';
         }
         else
         {
-            echo "<style> .file-type { display: block; }</style>";
-            $errors = 1;
-        }
+            if (($_FILES["file"]["type"] == "image/jpeg")|| ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/png"))
+            {
+                $filename = $fileID . "." . substr($_FILES["file"]["type"], 6);
 
-        if ($_FILES["file"]["error"] > 0)
-        {
-            $error = $_FILES["file"]["error"];
-            echo "<style> .gen-err { display: block; }</style>";
-            $errors = 1;
+                if($_FILES["file"]["size"] > 1000000)
+                {
+                    echo "<style> .file-size { display: block; }</style>";
+                    $errors = 1;
+                }
+            }
+            else
+            {
+                echo "<style> .file-type { display: block; }</style>";
+                $errors = 1;
+            }
+
+            if ($_FILES["file"]["error"] > 0)
+            {
+                $error = $_FILES["file"]["error"];
+                echo "<style> .gen-err { display: block; }</style>";
+                $errors = 1;
+            }
         }
+        
 
         $thisTitle = filter_var($thisTitle, FILTER_SANITIZE_STRING);
         if ($thisTitle == "") {
@@ -305,7 +314,7 @@
                 //create thumbnail
                 createThumbnail($filename, $originalFile, $thumbsFolder, 400);
 
-                mysqli_query($con, "UPDATE ama_games SET ama_title = '$thisTitle', ama_cover = '$fileID', ama_description = '$thisDesc', ama_developer = '$thisDev', ama_publisher = '$thisPub', ama_release = '$thisDate', ama_price = '$thisPrice', ama_platform = '$platforms', ama_genre = '$genres', ama_multi = '$thisMulti', ama_trailer = '$thisCode' WHERE id = '$id'") or die(mysqli_error($con));
+                mysqli_query($con, "UPDATE ama_games SET ama_title = '$thisTitle', ama_cover = '$filename', ama_description = '$thisDesc', ama_developer = '$thisDev', ama_publisher = '$thisPub', ama_release = '$thisDate', ama_price = '$thisPrice', ama_platform = '$platforms', ama_genre = '$genres', ama_multi = '$thisMulti', ama_trailer = '$thisCode' WHERE id = '$id'") or die(mysqli_error($con));
                 echo "<style> .updated { display: block !important; }</style>";
 
                 $thisTitle = "";
@@ -377,7 +386,7 @@
 <div class="container pt-5 mt-5 mb-5">
     <div class="success-msg updated mt-3 p-2 rounded border text-white bg-success">Update succeeded.</div>
     <div class="error-msg upload-failed-msg mt-3 p-2 rounded border text-white bg-danger">Error occured of type: <?php echo $errorMsg ?></div>
-    <form method="post" name="edit">
+    <form method="post" name="edit" action="<?php echo $_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
         <div class="form-group">
             <label for="entryselect">Select Entry</label>
             <select class="form-control" id="entryselect" name="entryselect" onchange="go()" style="height:auto;">
@@ -462,7 +471,7 @@
                     <legend>Platform(s)</legend>
                     <input type="checkbox" value="1" class="form-check-input" id="cbWin" name="cbWin" <?php if(strpos($thisPlatform, 'Windows') !== false) { echo "checked"; }?>>
                     <label class="form-check-label" for="cbWin">Windows</label><br>
-                    <input type="checkbox" value="1" class="form-check-input" id="cbMac" name="cbMac" <?php if(strpos($thisPlatform, 'Mac') !== false) { echo "checked"; }?>>
+                    <input type="checkbox" value="1" class="form-check-input" id="cbMac" name="cbMac" <?php if(strpos($thisPlatform, 'mac') !== false) { echo "checked"; }?>>
                     <label class="form-check-label" for="cbMac">Mac</label><br>
                     <input type="checkbox" value="1" class="form-check-input" id="cbLinux" name="cbLinux" <?php if(strpos($thisPlatform, 'Linux') !== false) { echo "checked"; }?>>
                     <label class="form-check-label" for="cbLinux">Linux</label><br>
