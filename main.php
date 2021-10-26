@@ -85,187 +85,185 @@ else
 
 ?>
 <style>
-
-.genre {
-  font-size: 0.7rem;
-}
-
-.fab,
-.fas {
-  font-size: 1.5rem;
-}
-
-.card {
-  box-shadow: 1px 6px 15px -6px rgba(0, 0, 0, 0.34) !important;
-  -webkit-box-shadow: 1px 6px 15px -6px rgba(0, 0, 0, 0.34) !important;
-  -moz-box-shadow: 1px 6px 15px -6px rgba(0, 0, 0, 0.34) !important;
-}
-
-.card a {
-  color: inherit;
-}
-
-.card a:hover {
-  text-decoration: none;
-}
-
-.card-deck {
-  max-width: 100vw;
-}
-
-.sorter ul {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-/* main ul li {
-    list-style: none;
-} */
-
-main ul li:first-child,
-main ul li:nth-child(2) {
-    list-style: none;
-}
-
-main ul li span {
-    position: relative;
-    left: -15px;
-}
-
-main ul li:first-child {
-    margin-right: 10px;
-}
-
-main ul li a {
-    color: #333;
-}
-
-main ul li a:hover{
-    color: #777;
-}
-
-@media screen and (max-width: 1260px)
-{
-    .sorter {
-        margin-left: 200px;
+    .genre {
+        font-size: 0.7rem;
     }
 
-    .gamesgrid{
-        margin-left: 65px;
+    .fab,
+    .fas {
+        font-size: 1.5rem;
     }
-}
 
-@media screen and (max-width: 1260px)
-{
+    .card {
+        box-shadow: 1px 6px 15px -6px rgba(0, 0, 0, 0.34) !important;
+        -webkit-box-shadow: 1px 6px 15px -6px rgba(0, 0, 0, 0.34) !important;
+        -moz-box-shadow: 1px 6px 15px -6px rgba(0, 0, 0, 0.34) !important;
+    }
+
+    .card a {
+        color: inherit;
+    }
+
+    .card a:hover {
+        text-decoration: none;
+    }
+
+    .card-deck {
+        max-width: 100vw;
+    }
+
+    .sorter ul {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* Sorting Links Style
     main ul li {
     list-style: none;
-    }
-}
+    } */
 
-@media screen and (max-width: 990px)
-{
-    .gamesgrid{
-        margin-left: 0;
-    }
-}
-
-@media screen and (max-width: 768px)
-{
-    .sorter ul {
-        display: block;
-        text-align: left;
+    main ul li:first-child,
+    main ul li:nth-child(2) {
+        list-style: none;
     }
 
-    .sorter {
-        margin-left: 0;
+    main ul li span {
+        position: relative;
+        left: -15px;
     }
 
-    .gamesgrid{
-        margin-left: 0;
+    main ul li:first-child {
+        margin-right: 10px;
     }
 
-}
+    main ul li a {
+        color: #333;
+    }
+
+    main ul li a:hover {
+        color: #777;
+    }
+
+    @media screen and (max-width: 1260px) {
+        .sorter {
+            margin-left: 200px;
+        }
+
+        .gamesgrid {
+            margin-left: 65px;
+        }
+    }
+
+    @media screen and (max-width: 1260px) {
+        main ul li {
+            list-style: none;
+        }
+    }
+
+    @media screen and (max-width: 990px) {
+        .gamesgrid {
+            margin-left: 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .sorter ul {
+            display: block;
+            text-align: left;
+        }
+
+        .sorter {
+            margin-left: 0;
+        }
+
+        .gamesgrid {
+            margin-left: 0;
+        }
+
+    }
 
 </style>
 <div class="row">
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-    <div class="sidebar-sticky">
-        <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-2 mt-0 mb-2 text-muted">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+            <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-2 mt-0 mb-2 text-muted">
             <span>Navigation</span>
         </h6> -->
-        <ul class="nav flex-column pt-2">
-            <li class="nav-item">
-                <a class="nav-link" href="main.php">All Games</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=ama_multi&value=1">Multiplayer/Co-op Games</a>
-            </li>
-        </ul>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
-            <span>Platform</span>
-        </h6>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=windows">Windows</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=macos">Mac</a>
-            </li><li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=linux">Linux</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=xbox">Xbox One</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=ps4">PS4</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=switch">Switch</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=ios">iOS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=platform&value=android">Android</a>
-            </li>
-        </ul>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
-            <span>Genre</span>
-        </h6>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=genre&value=action">Action</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=genre&value=adventure">Adventure</a>
-            </li><li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=genre&value=point">Point and Click</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=genre&value=platformer">Platformer</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=genre&value=puzzle">Puzzle</a>
-            </li>
-        </ul>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
-            <span>Price</span>
-        </h6>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=ama_price&max=10">$</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=ama_price&min=10&max=20">$$</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="main.php?displayby=ama_price&min=20">$$$</a>
-            </li>
-        </ul>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
-            <span>Random Game</span>
-        </h6>
+            <ul class="nav flex-column pt-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php">All Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=ama_multi&value=1">Multiplayer/Co-op Games</a>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
+                <span>Platform</span>
+            </h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=windows">Windows</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=macos">Mac</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=linux">Linux</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=xbox">Xbox One</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=ps4">PS4</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=switch">Switch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=ios">iOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=platform&value=android">Android</a>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
+                <span>Genre</span>
+            </h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=genre&value=action">Action</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=genre&value=adventure">Adventure</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=genre&value=point">Point and Click</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=genre&value=platformer">Platformer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=genre&value=puzzle">Puzzle</a>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
+                <span>Price</span>
+            </h6>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=ama_price&max=10">$</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=ama_price&min=10&max=20">$$</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php?displayby=ama_price&min=20">$$$</a>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 pt-1 my-2 text-muted">
+                <span>Random Game</span>
+            </h6>
             <?php
                 $random = mysqli_query($con, "SELECT * FROM ama_games ORDER BY RAND() LIMIT 1") or die(mysqli_error($con));
                 while($row = mysqli_fetch_array($random)){
@@ -296,9 +294,9 @@ main ul li a:hover{
                 }
 
             ?>
-        
-    </div>
-</nav>
+
+        </div>
+    </nav>
     <main class="pt-5 mt-3 pr-5">
         <div class="text-right sorter">
             <ul>
@@ -306,7 +304,7 @@ main ul li a:hover{
                     <b>Sort by:</b>
                 </li>
                 <li class="px-0 mx-0"><span>
-                    <a class="nav-link <?php
+                        <a class="nav-link <?php
                         if (strpos($_SERVER['REQUEST_URI'], "orderby=ama_title&ordervalue=asc") !== false)
                         {
                             echo "font-weight-bold";
@@ -325,9 +323,9 @@ main ul li a:hover{
                             echo $_SERVER['REQUEST_URI'] . $and;
                         }
                      ?>orderby=ama_title&ordervalue=asc">Alphabetical (A-Z)</a>
-                </span></li>
+                    </span></li>
                 <li class="px-0 mx-0"><span>
-                    <a class="nav-link <?php
+                        <a class="nav-link <?php
                         if (strpos($_SERVER['REQUEST_URI'], "orderby=ama_title&ordervalue=desc") !== false)
                         {
                             echo "font-weight-bold";
@@ -346,9 +344,9 @@ main ul li a:hover{
                             echo $_SERVER['REQUEST_URI'] . $and;
                         }
                      ?>orderby=ama_title&ordervalue=desc">Alphabetical (Z-A)</a>
-                </span></li>
+                    </span></li>
                 <li class="px-0 mx-0"><span>
-                    <a class="nav-link <?php
+                        <a class="nav-link <?php
                         if (strpos($_SERVER['REQUEST_URI'], "orderby=ama_price&ordervalue=asc") !== false)
                         {
                             echo "font-weight-bold";
@@ -367,9 +365,9 @@ main ul li a:hover{
                             echo $_SERVER['REQUEST_URI'] . $and;
                         }
                      ?>orderby=ama_price&ordervalue=asc">Price (low-high)</a>
-                </span></li>
+                    </span></li>
                 <li class="px-0 mx-0"><span>
-                    <a class="nav-link <?php
+                        <a class="nav-link <?php
                         if (strpos($_SERVER['REQUEST_URI'], "orderby=ama_price&ordervalue=desc") !== false)
                         {
                             echo "font-weight-bold";
@@ -388,9 +386,9 @@ main ul li a:hover{
                             echo $_SERVER['REQUEST_URI'] . $and;
                         }
                      ?>orderby=ama_price&ordervalue=desc">Price (high-low)</a>
-                </span></li>
+                    </span></li>
                 <li class="px-0 mx-0"><span>
-                    <a class="nav-link <?php
+                        <a class="nav-link <?php
                         if (strpos($_SERVER['REQUEST_URI'], "orderby=ama_release&ordervalue=desc") !== false)
                         {
                             echo "font-weight-bold";
@@ -409,9 +407,9 @@ main ul li a:hover{
                             echo $_SERVER['REQUEST_URI'] . $and;
                         }
                      ?>orderby=ama_release&ordervalue=desc">Release Date (newest first)</a>
-                </span></li>
+                    </span></li>
                 <li class="px-0 mx-0"><span>
-                    <a class="nav-link <?php
+                        <a class="nav-link <?php
                         if (strpos($_SERVER['REQUEST_URI'], "orderby=ama_release&ordervalue=asc") !== false)
                         {
                             echo "font-weight-bold";
@@ -430,7 +428,7 @@ main ul li a:hover{
                             echo $_SERVER['REQUEST_URI'] . $and;
                         }
                      ?>orderby=ama_release&ordervalue=asc">Release Date (oldest first)</a>
-                </span></li>
+                    </span></li>
             </ul>
         </div>
         <div class="d-inline-flex flex-wrap justify-content-end align-items-start gamesgrid">
@@ -458,7 +456,7 @@ main ul li a:hover{
                                     <h3>$title</h3>
                                     <h5 class=\"price text-muted mb-2\">$$price</h5>
                                 </div>
-                                <p class=\"mb-2\">$description</p>
+                                <p class=\"mb-2 card-desc\">$description</p>
                                 <div class=\"d-flex align-items-center\">";
                     
                     if (strpos($genre, 'Puzzle') !== false)

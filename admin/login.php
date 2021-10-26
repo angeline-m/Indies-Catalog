@@ -13,7 +13,7 @@
         else {
             include("../includes/header.php");
             echo "<h2 class=\"text-dark pt-5 mt-3\">Login</h2>";
-            echo "<p class=\"text-danger\">Incorrect login credentials</p>";
+            echo "<style>.error-msg {display:block;}</style>";
         }
     }
     else {
@@ -23,6 +23,8 @@
 
     $formAction = htmlspecialchars($_SERVER['PHP_SELF']);
 
+echo "<p><b>To create, update, or delete game entries, please login.</b> Login credentials in the <a href=\"https://github.com/angeline-m/indies-catalog\" target=\"_blank\">Github Repository</a>.</p>";
+echo "<p class=\"error-msg bg-danger text-center text-white rounded p-2\">Incorrect login credentials</p>";
 echo
 "<form class=\"login-form\" action=\"$formAction\" method=\"post\" name=\"login\">
     <div class=\"form-group p-3\">
