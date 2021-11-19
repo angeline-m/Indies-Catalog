@@ -21,12 +21,12 @@ if (isset($_GET['displayby']))
     //platform selection
     if ($_GET['displayby'] == 'platform')
     {
-        $result = mysqli_query($con,"SELECT * FROM ama_games WHERE `ama_platform` LIKE '%$value%' $order") or die (mysql_error());
+        $result = mysqli_query($con,"SELECT * FROM ama_games WHERE `ama_platform` LIKE '%$value%' $order") or die (mysqli_error());
     }
     //genre selection
     else if ($_GET['displayby'] == 'genre')
     {
-        $result = mysqli_query($con,"SELECT * FROM ama_games WHERE `ama_genre` LIKE '%$value%' $order") or die (mysql_error());
+        $result = mysqli_query($con,"SELECT * FROM ama_games WHERE `ama_genre` LIKE '%$value%' $order") or die (mysqli_error());
     }
     //price range selection
     else if ($_GET['displayby'] == 'ama_price')
@@ -39,26 +39,26 @@ if (isset($_GET['displayby']))
             if (isset($_GET['min']))
             {
                 $min = $_GET['min'];
-                $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby >= $min AND $displayby < $max $order") or die (mysql_error());
+                $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby >= $min AND $displayby < $max $order") or die (mysqli_error());
             }
             //lowest price range
             else
             {
-                $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby < $max $order") or die (mysql_error());
+                $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby < $max $order") or die (mysqli_error());
             }
         }
         //highest price range
         else
         {
             $min = $_GET['min'];
-            $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby >= $min $order") or die (mysql_error());
+            $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby >= $min $order") or die (mysqli_error());
         }
         
     }
     //other filters
     else
     {
-        $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby LIKE '$value' $order") or die (mysql_error());
+        $result = mysqli_query($con,"SELECT * FROM ama_games WHERE $displayby LIKE '$value' $order") or die (mysqli_error());
     }
 
     
@@ -74,12 +74,12 @@ else
     {
         $orderby = $_GET['orderby'];
         $ordervalue = $_GET['ordervalue'];
-        $result = mysqli_query($con,"SELECT * FROM ama_games ORDER BY $orderby $ordervalue") or die (mysql_error());
+        $result = mysqli_query($con,"SELECT * FROM ama_games ORDER BY $orderby $ordervalue") or die (mysqli_error());
     }
     //not sorted
     else
     {
-        $result = mysqli_query($con,"SELECT * FROM ama_games") or die (mysql_error());
+        $result = mysqli_query($con,"SELECT * FROM ama_games") or die (mysqli_error($con));
     }
 }
 
