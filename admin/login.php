@@ -23,7 +23,7 @@
 
     $formAction = htmlspecialchars($_SERVER['PHP_SELF']);
 
-echo "<p><b>To create, update, or delete game entries, please login.</b> Login credentials in the <a href=\"https://github.com/angeline-m/indies-catalog\" target=\"_blank\">Github Repository</a>.</p>";
+echo "<p><b>To create, update, or delete game entries, please login.</b> Login credentials in the <a href=\"http://github.com/angeline-m/indies-catalog\" target=\"_blank\">Github Repository</a>.</p>";
 echo "<p class=\"error-msg bg-danger text-center text-white rounded p-2\">Incorrect login credentials</p>";
 echo
 "<form class=\"login-form\" action=\"$formAction\" method=\"post\" name=\"login\">
