@@ -19,8 +19,6 @@ The catalog information is stored in a table in a MySQL database. The informatio
 - General
   - Login/Logout functionality only for the insert/edit pages to do any database CRUD
   - Site-wide search bar that leads to a results page
-- Intro page
-  - I'm feeling lucky button will take you to the detail page for a random game
 - Main page
   - Game filtering:
     - View all
