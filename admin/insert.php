@@ -430,7 +430,7 @@
                 <div class="pl-2 mb-3">
                     <fieldset>
                         <legend>Genre(s)</legend>
-                        <input type="checkbox" value="1" class="form-check-input" id="cbAction" name="cbAction <?php if($action !== '') { echo "checked"; } ?>>
+                        <input type="checkbox" value="1" class="form-check-input" id="cbAction" name="cbAction" <?php if($action !== '') { echo "checked"; } ?>>
                         <label class="form-check-label" for="cbAction">Action</label><br>
                         <input type="checkbox" value="1" class="form-check-input" id="cbAdventure" name="cbAdventure" <?php if($adventure !== '') { echo "checked"; } ?>>
                         <label class="form-check-label" for="cbAdventure">Adventure</label><br>
